@@ -27,32 +27,33 @@ function playRound(playerSelection, computerSelection ){
     }
 }
 
-function game(){
-    let playerScore = 0; 
-    let computerScore = 0;
+function game(){ //the game function
+	let playerScore = 0; //the computer score and the player score is set to zero
+	let computerScore = 0;
 
-    for (i= 0; i < 5; i++){
-        let playerSelection = prompt('Please Type Something').toUpperCase;
-        computerSelection = computerPlay().toUpperCase;
-        score = playRound(playerSelection,computerSelection);
-        if (score == "win"){
-                playerScore++
-                console.log(`You win ${playerSelection} beats ${computerSelection}`);
-        }else{
-                computerScore++
-                console.log(`You loose ${computerSelection} beats ${playerSelection}`);
-        }
-    }
+	for (i= 0; i < 5; i++){
+		playerSelection = prompt('Please Type Something: You Have to choose between "PAPER","ROCK","SCISSORS"')
+		.toUpperCase(); //you input something on the prompt
+		computerSelection = computerPlay().toUpperCase(); //the computer selection is from the computer play
+		score = playRound(playerSelection,computerSelection);
+		if (score == "win"){
+			playerScore++
+			console.log(`You win ${playerSelection} beats ${computerSelection}`);
+		}else{
+			computerScore++
+			console.log(`You loose ${computerSelection} beats ${playerSelection}`);
+		}
+	}
 
-    if (playerScore > computerScore){
-        playerScore++;
-        console.log(`You win! Score: ${playerScore} : ${computerScore}`)
-    } else if (playerScore == computerScore){
-        console.log(`This is a draw ${playerScore} : ${computerScore}`);
-    }else {
-        computerScore++;
-        console.log(`You Loose! Score: ${computerScore} to ${playerScore}`)      
-    }  
+	if (playerScore > computerScore){
+		playerScore++;
+		console.log(`You win! Score: ${playerScore} : ${computerScore}`)
+	} else if (playerScore == computerScore){
+		console.log(`This is a draw ${playerScore} : ${computerScore}`);
+	}else {
+		computerScore++;
+		console.log(`You Loose! Score: ${computerScore} to ${playerScore}`)      
+	}  
 }
 
 game();
