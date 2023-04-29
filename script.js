@@ -1,25 +1,25 @@
 // a javascript function to return Scissors, Rock and Paper;
 function computerPlay(){
-    // Combining Math.floor with Math.random to give us any 
-    //random number from 1 - 3 when the page is loaded;
-    const pick = Math.floor(Math.random() * 3 + 1);
-    if (pick == 3 ){
-        return("scissors"); //if the system picks the value 3, then the string "Scissors" is attached to it
-    }else if (pick == 2){      
-        return("rock"); //if the system picks the value 2, then the string "Rock" is attached to it
-    }else {
-        return("paper"); //if the system picks the value 1, then the string "Paper" is attached to it
-    }
+	// Combining Math.floor with Math.random to give us any 
+	//random number from 1 - 3 when the page is loaded;
+	const pick = Math.floor(Math.random() * 3 + 1);
+	if (pick == 3 ){
+		return("scissors"); //if the system picks the value 3, then the string "Scissors" is attached to it
+	}else if (pick == 2){      
+		return("rock"); //if the system picks the value 2, then the string "Rock" is attached to it
+	}else {
+		return("paper"); //if the system picks the value 1, then the string "Paper" is attached to it
+	}
 }
 computerPlay(); //Calling the function computerPlay
 
 // comparing the result of player and computer.
 function playRound(playerSelection, computerSelection ){
-    if (playerSelection == computerSelection){ // if player value is the same as computer value.
-        return "win" //"You win!";
-    } else { //If Player value isn't the same as computer value
-        return "loose" //"You Lose!";
-    }
+	if (playerSelection == computerSelection){ // if player value is the same as computer value.
+		return "win" //"You win!";
+	} else { //If Player value isn't the same as computer value
+		return "loose" //"You Lose!";
+	}
 }
 
 function game(){ //the game function
