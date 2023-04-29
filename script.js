@@ -32,8 +32,8 @@ function game(){
     let computerScore = 0;
 
     for (i= 0; i < 5; i++){
-        let playerSelection = prompt('Please Type Something ');
-        computerSelection = computerPlay();
+        let playerSelection = prompt('Please Type Something').toUpperCase;
+        computerSelection = computerPlay().toUpperCase;
         score = playRound(playerSelection,computerSelection);
         if (score == "win"){
                 playerScore++
