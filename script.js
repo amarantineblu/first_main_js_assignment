@@ -39,7 +39,6 @@ function userPlay() {
 
 // function that plays a single round of Rock Paper Scissors.
 function playRound(playerSelection, computerSelection) {
-<<<<<<< HEAD
 	if ((playerSelection == "rock" && computerSelection == "rock") ||
 		(playerSelection == "paper" && computerSelection == "paper") ||
 		(playerSelection == "scissors" && computerSelection == "scissors")) {
@@ -48,53 +47,26 @@ function playRound(playerSelection, computerSelection) {
 		return "lose"
 	}
 }
-=======
-	if
-		((playerSelection == "rock" && computerSelection == "rock") ||
-		(playerSelection ==  "paper" && computerSelection == "paper") || 
-		(playerSelection == "scissors" && computerSelection == "scissors")) {
-		return "win" 
-	} else {
-		return "lose" 
-	} 
-} 
->>>>>>> 6a8e108ffb78963577c67b0d03a37057e909361d
 
 // function to play a 5 round game that keeps score and reports a winner or loser
 function gameDisplay() {
 	let yourCount = 0;
 	let computerCount = 0;
-<<<<<<< HEAD
 	for (let round = 0; round < 5; round++) {
 		let score = playRound(userPlay(), computerPlay());
-=======
-	for(let round = 0; round < 5; round++){
-		let score = playRound(userPlay(), computerPlay()); 
->>>>>>> 6a8e108ffb78963577c67b0d03a37057e909361d
 		if (score == "win") {
 			yourCount++;
 			console.log(`You win! ${score} beats ${score}`);
 		} else {
 			computerCount++;
 			console.log(`You Lose! ${score} beats ${score}`);
-<<<<<<< HEAD
 		}
-=======
-		} 
->>>>>>> 6a8e108ffb78963577c67b0d03a37057e909361d
 	}
 	if (yourCount > computerCount) {
 		console.log(`You win! Score: ${yourCount} to ${computerCount}`);
 	} else {
-<<<<<<< HEAD
 		console.log(`You Lose! Score: ${yourCount} to ${computerCount}`);
 	}
 }
 
 gameDisplay();
-=======
-		console.log(`You Lose! Score: ${yourCount} to ${computerCount}`);     
-	}
-}
-gameDisplay(); 
->>>>>>> 6a8e108ffb78963577c67b0d03a37057e909361d
