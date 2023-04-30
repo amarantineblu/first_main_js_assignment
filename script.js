@@ -1,52 +1,73 @@
-// a javascript function to return Scissors, Rock and Paper;
-function computerPlay(){
-	// Combining Math.floor with Math.random to give us any 
-	//random number from 1 - 3 when the page is loaded;
-	const pick = Math.floor(Math.random() * 3 + 1);
-	if (pick == 3 ){
-		return("scissors"); //if the system picks the value 3, then the string "Scissors" is attached to it
-	}else if (pick == 2){      
-		return("rock"); //if the system picks the value 2, then the string "Rock" is attached to it
-	}else {
-		return("paper"); //if the system picks the value 1, then the string "Paper" is attached to it
-	}
-}
-computerPlay(); //Calling the function computerPlay
-
-// comparing the result of player and computer.
-function playRound(playerSelection, computerSelection ){
-	if (playerSelection == computerSelection){ // if player value is the same as computer value.
-		return "win" //"You win!";
-	} else { //If Player value isn't the same as computer value
-		return "loose" //"You Lose!";
-	}
+// function to randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
+const gameParameters = ['Paper', 'Rock', 'Scissors'] 
+function computerPlay () {
+	const pick = Math.floor(Math.random() * gameParameters.length);
+	
+    let play;
+    switch (pick){
+        case 1: 
+        play = "rock";
+        break;
+        case 2: 
+        play = "paper";
+        break;
+        case 3: 
+        play = "scissors";      
+    }
+    return play;
 }
 
-function game(){ //the game function
-	let playerScore = 0; //the computer score and the player score is set to zero
-	let computerScore = 0;
-	let gameCount = 0;
-	for (i = 0; i < 5; i++){
-		let round = i;
-		playerSelection = prompt(`Round ${round + 1} Please Type Something: You Have to choose between "PAPER","ROCK","SCISSORS"`)
-		.toUpperCase(); //you input something on the prompt
-		computerSelection = computerPlay().toUpperCase(); //the computer selection is from the computer play
-		score = playRound(playerSelection,computerSelection);
-		if (score == "win"){
-			playerScore++
-			console.log(`You win ${playerSelection} beats ${computerSelection}`);
-		}else{
-			computerScore++
-			console.log(`You loose ${computerSelection} beats ${playerSelection}`);
-		}
-	}
-
-	if (playerScore > computerScore){
-		console.log(`You win! Score: ${playerScore} : ${computerScore}`)//if playerscore is greater then you win
-	} else if (playerScore == computerScore){
-		console.log(`This is a draw ${playerScore} : ${computerScore}`); //if playerscore and computer score is equal, it is a draw
-	}else {
-		console.log(`You Loose! Score: ${computerScore} to ${playerScore}`);//if computer score is greater     
-	}  																																		//than playerscore then you loose
+//function to prompt user play
+function userPlay(){
+    let selection = true;
+    let playerSelection = "";
+    let round = 1;
+    let selectAgain = "";
+    while (selection) {
+        playerSelection = prompt(
+            `Round ${round} Please Select any of the Following: ${selectAgain} Rock, Paper or Scissors`).toLowerCase();
+        if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors"){
+            selection = false;
+            round++;
+        } else {
+            selection = true;
+            selectAgain = "AGAIN! WRONG CHOICE!"
+        }      
+    }
+    return playerSelection;
 }
-game();
+
+// function that plays a single round of Rock Paper Scissors.
+function playRound(playerSelection, computerSelection) {
+    if ((playerSelection == "rock" && computerSelection == "rock") ||
+        (playerSelection ==  "paper" && computerSelection == "paper") || 
+        (playerSelection == "scissors" && computerSelection == "scissors")) {
+        return "win" 
+    } else {
+        return "lose" 
+    } //end end if
+} //function
+
+
+// function to play a 5 round game that keeps score and reports a winner or loser
+function gameDisplay() {
+    let yourCount = 0;
+    let computerCount = 0;
+    for(let round = 0; round < 5; round++){
+            let score = playRound(userPlay(), computerPlay()); 
+            if (score == "win") {
+                yourCount++;
+                console.log(`You win! ${score} beats ${score}`);
+            } else {
+                computerCount++;
+                console.log(`You Lose! ${score} beats ${score}`);
+            } 
+    }
+    if (yourCount > computerCount) {
+        console.log(`You win! Score: ${yourCount} to ${computerCount}`);
+    } else {
+        console.log(`You Lose! Score: ${yourCount} to ${computerCount}`);     
+    }
+}
+
+gameDisplay(); //play game
